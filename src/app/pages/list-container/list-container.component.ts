@@ -21,13 +21,11 @@ export class ListContainerComponent implements OnInit, AfterViewInit {
     ngOnInit(): void {}
 
     ngAfterViewInit(): void {
-        // this.scroller.scrollToCachedAnchor();
         this.scroller.scrollToCachedPosition();
     }
 
     public onClick(store: { name: string; id: number }): void {
         this.store.cache = store.name;
-        // this.scroller.cacheAnchor = `${store.id}`;
         this.scroller.cachePosition = this.scroller.position;
         this.router.navigate(['detail']).then();
     }

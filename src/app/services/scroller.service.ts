@@ -6,7 +6,6 @@ import { ViewportScroller } from '@angular/common';
 })
 export class ScrollerService {
     private _cachePosition: [number, number];
-    private _cacheAnchor: string;
 
     constructor(private viewportScroller: ViewportScroller) {}
 
@@ -26,26 +25,10 @@ export class ScrollerService {
     }
 
     /**
-     * アンカーを保持する
-     * @param cacheAnchor
-     */
-    public set cacheAnchor(cacheAnchor: string) {
-        this._cacheAnchor = cacheAnchor;
-    }
-
-    /**
      * 保持した座標の位置までスクロールする
      */
     public scrollToCachedPosition() {
         if (!this._cachePosition || !this._cachePosition.length) return;
         this.viewportScroller.scrollToPosition(this._cachePosition);
-    }
-
-    /**
-     * アンカーの位置までスクロールする
-     */
-    public scrollToCachedAnchor() {
-        if (!this._cacheAnchor) return;
-        this.viewportScroller.scrollToAnchor(this._cacheAnchor);
     }
 }
