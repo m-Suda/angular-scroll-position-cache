@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.h2 {
+  border-top: 1px solid #aeaeae;
+  border-bottom: 1px solid #aeaeae;
+}

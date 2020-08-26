@@ -1,0 +1,20 @@
+<mat-accordion *ngFor="let data of stores">
+    <mat-expansion-panel (opened)="cacheOpenedCategory(data.aria)"
+                         (closed)="removeClosedCategoryFromCategoryCache(data.aria)"
+                         [expanded]="data.aria | isOpened">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{data.aria}}</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <ng-container *ngFor="let subAria of data.subAria">
+            <app-h2 class="h2">{{subAria.name}}</app-h2>
+
+            <app-store *ngFor="let store of subAria.stores"
+                       (click)="onClick(store)"
+                       id="{{store.id}}">
+                {{store.name}}
+            </app-store>
+        </ng-container>
+
+    </mat-expansion-panel>
+</mat-accordion>
